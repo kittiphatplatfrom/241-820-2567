@@ -6,7 +6,8 @@ body {
     font-family: 'kanit';
 }
 .container {
-    width: 100px;
+    width: 100%;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
     background-color: azure;
@@ -36,16 +37,19 @@ input.form, textarea {
 }
 .button {
     border: 0;
-    width: 100%;
+    width: 50%;
     background-color: aqua;
     height: 40px;
 }
+
 @media screen and (max-width: 768px) {
     .flex {
         flex-direction: column;
     }
-    .header {
+    .header{
         font-size: 24px;
     }
-    
+    .button {
+        width: 100%;
+    }
 }
