@@ -22,6 +22,29 @@ let conn = null
     })
  }
 
+const validateData = (userData) => {
+    let errors = []
+    if (!userData.firstname) {
+        errors.push('กรุณากรอกชื่อ')
+    }
+    if(!userData.lastname) {
+        errors.push('กรุณากรอกนามสกุล')
+    }
+    if(!userData.age) {
+        errors.push('กรุณากรอกอายุ')
+    }
+    if(!userData.gender) {
+        errors.push('กรุณาเลือกเพศ')
+    }
+    if(!userData.interests) {
+        errors.push('กรุณาเลือกความสนใจ')
+    }
+    if(!userData.description) {
+        errors.push('กรุณากรอกข้อมูลตัวเอง')
+    }
+    return errors
+}
+
  app.get('/testdb-new', async (req, res) => {
     try{     
         const results = await conn.query('SELECT * FROM users')
@@ -42,18 +65,30 @@ app.get('/users', async (req,res) => {
 // path = POST / User
 app.post('/users', async (req,res) => {
     try{ 
-        let user = req.body;
+    let user = req.body;
+    const errors = validateData(user)
+    if(errors.lengh > 0) {
+        throw {
+            message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+            errors: errors 
+        }
+    }
         const results = await conn.query('INSERT INTO users SET ?', user)
         console.log('results:',results)
         res.json({
-            message: 'User created',
-            data: results[0]
-        })
+        message: 'User created',
+        data: {
+            message : 'User created',
+            data: user
+        }
+    });
     } catch (error)  {
+        const errorMessage = error.message || 'something went wrong'
+        const errors = error.errors || []
         console.error('errorMessage',error.message)
         res.status(500).json({
-            message: 'something went wrong',
-            errorMessage: error.message
+            message: 'errorMessage',
+            errors: errors
         })
     }
 })
