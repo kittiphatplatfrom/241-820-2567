@@ -1,18 +1,55 @@
 @font-face {
     font-family: 'kanit';
     src: url('./Kanit/Kanit-Regular.ttf');
-}      
+}
+
 body {
     font-family: 'kanit';
+    background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/20184.jpg');
+    background-size: cover;
+    color: navy;
 }
+
+.welcome-message {
+    background-color: rgba(0, 0, 0, 0.5); /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    padding: 20px; /* เพิ่มพื้นที่รอบๆ ข้อความ */
+    border: 2px solid navy; /* กรอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    margin: 20px auto; /* จัดให้อยู่กลาง */
+    width: fit-content; /* ปรับขนาดให้พอดีกับเนื้อหา */
+}
+
+.user-management-link {
+    position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+    border: 2px solid green; /* กำหนดสีกรอบ */
+    top: 20px; /* ระยะห่างจากด้านบน */
+    right: 20px; /* ระยะห่างจากด้านขวา */
+    background-color: rgba(0, 0, 0, 0.8); /* สีพื้นหลังทึบ */
+    color: white; /* สีข้อความ */
+    padding: 10px 15px; /* เพิ่มพื้นที่รอบๆ ข้อความ */
+    border-radius: 5px; /* มุมโค้ง */
+    text-decoration: none; /* ลบเส้นใต้ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* เงา */
+}
+
+.user-management-link:hover {
+    background-color: green; /* เปลี่ยนสีพื้นเมื่อเอาเมาส์ไปชี้ */
+        color: white; /* เปลี่ยนสีตัวอักษรเมื่อเอาเมาส์ไปชี้ */
+}
+
+
 .container {
     width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: azure;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 8px;
+    color: white;
 }
 .header{
     font-size: 30px;
@@ -31,15 +68,25 @@ body {
 input.form, textarea {
     border: 1px solid black;
     width: 100%;
+    margin: 5px 0;
+    height: 30px;
 }
 .center{
     text-align: center;
 }
 .button {
-    border: 0;
-    width: 50%;
-    background-color: aqua;
-    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* เปลี่ยนเป็นสีทึบ */
+    color: white; /* สีตัวอักษร */
+    border: 2px solid #0056b3; /* กรอบปุ่ม */
+    border-radius: 5px; /* มุมของกรอบ */
+    padding: 10px 20px; /* ขนาดและระยะห่าง */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนลักษณะของเมาส์เมื่อชี้ที่ปุ่ม */
+    transition: background-color 0.3s ease; /* การเปลี่ยนสีเมื่อชี้ */
+}
+
+.button:hover {
+    background-color: #0056b3; /* เปลี่ยนเป็นสีเข้มเมื่อชี้ */
 }
 
 .message {
